@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Steam Пошук</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="tabs">
+      <div class="tab active" data-tab="user-search">Пошук користувача</div>
+      <div class="tab" data-tab="game-search">Пошук гри</div>
+    </div>
+
+    <div id="user-search" class="tab-content">
+      <input
+        type="text"
+        id="username"
+        placeholder="Введіть Steam Vanity URL або ім'я"
+      />
+      <button id="searchUserBtn">Шукати користувача</button>
+      <div id="result"></div>
+    </div>
+
+    <div id="game-search" class="tab-content" style="display: none">
+      <input type="text" id="gamequery" placeholder="Введіть назву гри" />
+      <button id="searchGameBtn">Шукати гру</button>
+      <div id="game-result"></div>
+    </div>
+
+    <div id="group-search" class="tab-content" style="display: none">
+      <input type="text" id="groupquery" placeholder="Введіть назву групи" />
+      <button id="searchGroupBtn">Шукати групу</button>
+      <div id="group-result"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

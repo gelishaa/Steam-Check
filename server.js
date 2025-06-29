@@ -5,7 +5,7 @@ const path = require("path");
 
 const app = express();
 const PORT = 3000;
-const API_KEY = "5A3F92473809F973597EC85D4ECA08F8"; // заміни, якщо потрібно
+const API_KEY = "5A3F92473809F973597EC85D4ECA08F8"; 
 
 app.use(express.static(path.join(__dirname, "public")));
 

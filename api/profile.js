@@ -11,15 +11,19 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      return res
-        .status(response.status)
-        .json({ error: "Помилка від Steam API", details: errorText });
+      return res.status(response.status).json({
+        error: "Помилка від Steam API",
+        details: errorText,
+      });
     }
 
     const data = await response.json();
     res.status(200).json(data);
   } catch (err) {
-    console.error("Внутрішня помилка:", err.message);
-    res.status(500).json({ error: "Внутрішня помилка сервера", details: err.message });
+    console.error("Внутрішня помилка сервера:", err.message);
+    res.status(500).json({
+      error: "Внутрішня помилка сервера",
+      details: err.message,
+    });
   }
 }

@@ -1,11 +1,15 @@
-const express = require("express");
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
-const path = require("path");
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fetch from 'node-fetch';
+
+// Для __dirname у ES-модулях:
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = 3000;
-const API_KEY = "5A3F92473809F973597EC85D4ECA08F8"; 
+const API_KEY = "5A3F92473809F973597EC85D4ECA08F8";
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -41,6 +45,7 @@ app.get("/api/profile", async (req, res) => {
     res.status(500).json({ error: "Помилка при запиті профілю" });
   }
 });
+
 app.get("/api/applist", async (req, res) => {
   try {
     const response = await fetch(
@@ -56,6 +61,7 @@ app.get("/api/applist", async (req, res) => {
     res.status(500).json({ error: "Внутрішня помилка сервера" });
   }
 });
+
 app.listen(PORT, () => {
   console.log(`Сервер працює: http://localhost:${PORT}`);
 });
